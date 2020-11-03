@@ -5,6 +5,7 @@ void ManagerUser::registerUser(){
     User user = giveDataNewUser();
     users.push_back(user);
     cout << "Konto zostalo zalozone" << endl;
+    system("pause");
 }
 
 User ManagerUser::giveDataNewUser() {
@@ -42,4 +43,44 @@ bool ManagerUser::isExistNameUser(string nameUser) {
     }
  }
  return false;
+}
+
+
+int ManagerUser::singIn() {
+
+    string nameUser = "", password = "";
+
+    cout <<"Podaj login" << endl;
+    cin >> nameUser;
+
+
+    vector <User>::iterator itr = users.begin();
+    while (itr != users.end())
+    {
+        if (itr->getUserName() == nameUser)
+        {
+            for (int test = 3; test > 0; test--)
+            {
+                cout << "Podaj haslo. Pozostalo prob: " << test << ": ";
+                cin >> password;
+
+                if (itr -> getPassword() == password)
+                {
+                    cout << endl << "Zalogowales sie." << endl << endl;
+                    system("pause");
+
+                     idLoggedUser = itr -> getIdUser();
+                     return idLoggedUser;
+                }
+            }
+            cout << "Wprowadzono 3 razy bledne haslo." << endl;
+            system("pause");
+            return 0;
+        }
+        itr++;
+    }
+    cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
+    system("pause");
+    return 0;
+
 }

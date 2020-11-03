@@ -18,16 +18,14 @@ int main()
         if(choice == '1') {
             financialResources.registerUser();
         }
-/*
+
         else if(choice == '2') {
             financialResources.singIn();
         }
-*/
-        if (choice = '11') {
+
+        else if (choice = '9') {
         exit(0);
          }
-
-
     }
     return 0;
 }

@@ -13,7 +13,7 @@ char FinancialResources::selectOptionFromTheMainMenu(){
     cout << "---------------------------" << endl;
     cout << "1. Rejestracja" << endl;
     cout << "2. Logowanie" << endl;
-    cout << "11. Koniec programu" << endl;
+    cout << "9. Koniec programu" << endl;
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
     cin >> choice;
@@ -48,3 +48,6 @@ void FinancialResources::registerUser(){
     managerUser.registerUser();
 }
 
+void FinancialResources::singIn() {
+    managerUser.singIn();
+}

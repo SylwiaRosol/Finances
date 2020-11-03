@@ -1,5 +1,8 @@
 #include <iostream>
 #include <vector>
+#include <sstream>
+#include <cstdlib>
+
 #include "User.h"
 
 using namespace std;
@@ -9,6 +12,7 @@ class ManagerUser {
 
     vector <User> users;
     User user;
+    int idLoggedUser;
 
     bool isExistNameUser(string nameUser);
     int setIdNewUser();
@@ -16,7 +20,7 @@ class ManagerUser {
 public:
     void registerUser();
     User giveDataNewUser();
-    void singIn();
+    int singIn();
     void changePasswordLogedUser();
     void singOut();
 
