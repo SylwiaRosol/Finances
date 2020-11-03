@@ -1,12 +1,14 @@
 #include <iostream>
 
+#include "ManagerUser.h"
+
 
 using namespace std;
 
 class FinancialResources
 {
 
-    //UserMenager usermenager;
+    ManagerUser managerUser;
 
     public:
         //FinancialResources();

@@ -45,8 +45,6 @@ char FinancialResources::selectOptionFromeTheMenuUser() {
 
 
 void FinancialResources::registerUser(){
-
-
-
-
+    managerUser.registerUser();
 }
+

@@ -14,11 +14,11 @@ int main()
     while(1) {
         choice = financialResources.selectOptionFromTheMainMenu();
 
-/*
+
         if(choice == '1') {
             financialResources.registerUser();
         }
-
+/*
         else if(choice == '2') {
             financialResources.singIn();
         }
