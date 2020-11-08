@@ -11,7 +11,8 @@ class FinancialResources
     ManagerUser managerUser;
 
     public:
-        //FinancialResources();
+
+    FinancialResources(string nameFileXmlWitchUsers) : managerUser(nameFileXmlWitchUsers) {};
        // ~FinancialResources();
         char selectOptionFromTheMainMenu();
         char selectOptionFromeTheMenuUser();

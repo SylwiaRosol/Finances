@@ -8,9 +8,10 @@ using namespace std;
 
 int main()
 {
+    cout << "tutaj jeszcze dziala"<< endl;
     char choice;
-    FinancialResources financialResources;
-
+    FinancialResources financialResources ("user.xml");
+ cout<< "czy dziala?" << endl;
     while(1) {
         choice = financialResources.selectOptionFromTheMainMenu();
 

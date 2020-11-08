@@ -4,6 +4,7 @@
 void ManagerUser::registerUser(){
     User user = giveDataNewUser();
     users.push_back(user);
+    //fileXmlWitchUsers.addUserToTheFile(user);
     cout << "Konto zostalo zalozone" << endl;
     system("pause");
 }
