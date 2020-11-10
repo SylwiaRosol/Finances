@@ -4,23 +4,33 @@
 void ManagerUser::registerUser(){
     User user = giveDataNewUser();
     users.push_back(user);
+    //fileXmlWitchUsers.addUserToTheFile(user);
     cout << "Konto zostalo zalozone" << endl;
     system("pause");
 }
 
 User ManagerUser::giveDataNewUser() {
     User user;
-    string nameUser, password;
+    string nameUser, password, name,surname;
     user.setIdUser(setIdNewUser());
+
+        cout << "Podaj swoje imie" << endl;
+        name = HelpfulMethods::loadLine();
+        HelpfulMethods::changeFirstLetterForCapitalLetterAndOthersForLowercaseLetters(name);
+        user.setName(name);
+        cout << "Podaj swoje nazwisko" << endl;
+        surname = HelpfulMethods::loadLine();
+        HelpfulMethods::changeFirstLetterForCapitalLetterAndOthersForLowercaseLetters(surname);
+        user.setSurname(surname);
 
     do {
         cout << "Podaj login nowego uzytkownika: "<< endl;
-        cin >> nameUser;
+        nameUser = HelpfulMethods::loadLine();
     } while (isExistNameUser(nameUser));
     user.setUserName(nameUser);
 
     cout << "Podaj haslo" << endl;
-    cin >> password;
+    password = HelpfulMethods::loadLine();
     user.setPassword(password);
 
     return user;

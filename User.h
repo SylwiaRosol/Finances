@@ -1,3 +1,6 @@
+#ifndef USER_H
+#define USER_H
+
 #include <iostream>
 #include <string>
 
@@ -24,3 +27,6 @@ public:
     void setIdUser(int idUser);
 
 };
+
+
+#endif

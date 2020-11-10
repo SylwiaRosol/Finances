@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "ManagerUser.h"
+#include "HelpfulMethods.h"
 
 
 using namespace std;
@@ -11,7 +12,8 @@ class FinancialResources
     ManagerUser managerUser;
 
     public:
-        //FinancialResources();
+
+    FinancialResources(string nameFileXmlWitchUsers) : managerUser(nameFileXmlWitchUsers) {};
        // ~FinancialResources();
         char selectOptionFromTheMainMenu();
         char selectOptionFromeTheMenuUser();

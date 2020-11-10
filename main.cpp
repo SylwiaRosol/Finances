@@ -4,13 +4,13 @@
 
 #include "FinancialResources.h"
 
+
 using namespace std;
 
 int main()
 {
     char choice;
-    FinancialResources financialResources;
-
+    FinancialResources financialResources ("user.xml");
     while(1) {
         choice = financialResources.selectOptionFromTheMainMenu();
 
