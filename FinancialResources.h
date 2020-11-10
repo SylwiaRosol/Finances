@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "ManagerUser.h"
+#include "HelpfulMethods.h"
 
 
 using namespace std;

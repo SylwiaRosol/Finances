@@ -8,6 +8,7 @@
 
 #include "User.h"
 #include "FileXmlWitchUsers.h"
+#include "HelpfulMethods.h"
 
 using namespace std;
 

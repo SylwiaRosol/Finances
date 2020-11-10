@@ -14,7 +14,6 @@ class FileXmlWitchUsers : public FileXml {
 
     string nameFile;
     User getDateUser();
-
 public:
 
     FileXmlWitchUsers(string nameFile) : FileXml (nameFile) {};

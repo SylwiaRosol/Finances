@@ -16,8 +16,7 @@ char FinancialResources::selectOptionFromTheMainMenu(){
     cout << "9. Koniec programu" << endl;
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
-    cin >> choice;
-   // choice = MetodyPomocnicze::wczytajZnak();
+    choice = HelpfulMethods::loadSign();
 
     return choice;
 
@@ -39,7 +38,7 @@ char FinancialResources::selectOptionFromeTheMenuUser() {
     cout << "10. Wyloguj sie" << endl;
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
-    cin >> choice;
+    choice = HelpfulMethods::loadSign();
    return choice;
 }
 
