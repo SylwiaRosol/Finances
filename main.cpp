@@ -10,7 +10,8 @@ using namespace std;
 int main()
 {
     char choice;
-    FinancialResources financialResources ("user.xml");
+    FinancialResources financialResources ("users.xml");
+
     while(1) {
         choice = financialResources.selectOptionFromTheMainMenu();
 
@@ -27,5 +28,5 @@ int main()
         exit(0);
          }
     }
-    return 0;
+        return 0;
 }

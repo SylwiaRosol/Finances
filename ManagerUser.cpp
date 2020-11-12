@@ -4,7 +4,7 @@
 void ManagerUser::registerUser(){
     User user = giveDataNewUser();
     users.push_back(user);
-    //fileXmlWitchUsers.addUserToTheFile(user);
+    fileXmlWitchUsers.addUserToTheFile(user);
     cout << "Konto zostalo zalozone" << endl;
     system("pause");
 }
@@ -16,11 +16,11 @@ User ManagerUser::giveDataNewUser() {
 
         cout << "Podaj swoje imie" << endl;
         name = HelpfulMethods::loadLine();
-        HelpfulMethods::changeFirstLetterForCapitalLetterAndOthersForLowercaseLetters(name);
+        name = HelpfulMethods::changeFirstLetterForCapitalLetterAndOthersForLowercaseLetters(name);
         user.setName(name);
         cout << "Podaj swoje nazwisko" << endl;
         surname = HelpfulMethods::loadLine();
-        HelpfulMethods::changeFirstLetterForCapitalLetterAndOthersForLowercaseLetters(surname);
+        surname = HelpfulMethods::changeFirstLetterForCapitalLetterAndOthersForLowercaseLetters(surname);
         user.setSurname(surname);
 
     do {

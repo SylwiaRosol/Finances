@@ -50,3 +50,4 @@ void FinancialResources::registerUser(){
 void FinancialResources::singIn() {
     managerUser.singIn();
 }
+

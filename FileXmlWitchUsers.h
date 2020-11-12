@@ -5,6 +5,8 @@
 
 #include "User.h"
 #include "FileXml.h"
+#include "Markup.h"
+#include "HelpfulMethods.h"
 
 
 using namespace std;
@@ -13,12 +15,13 @@ using namespace std;
 class FileXmlWitchUsers : public FileXml {
 
     string nameFile;
-    User getDateUser();
+
+
 public:
 
     FileXmlWitchUsers(string nameFile) : FileXml (nameFile) {};
     void addUserToTheFile (User user);
     vector <User> loadUsersFromFile();
-    void saveAllUsersToFile (vector <User> &users);
+
 
 };

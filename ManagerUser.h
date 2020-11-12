@@ -24,13 +24,15 @@ class ManagerUser {
     int setIdNewUser();
 
 public:
-    ManagerUser(string nameFileXmlWitchUser) : fileXmlWitchUsers(nameFileXmlWitchUser) { idLoggedUser = 0;};
+    ManagerUser(string nameFileXmlWitchUser) : fileXmlWitchUsers(nameFileXmlWitchUser) {
+       users = fileXmlWitchUsers.loadUsersFromFile();
+         idLoggedUser = 0;};
+
     void registerUser();
     User giveDataNewUser();
     int singIn();
     void changePasswordLogedUser();
     void singOut();
-
 };
 
 #endif
