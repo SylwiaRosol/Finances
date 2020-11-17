@@ -1,4 +1,3 @@
-#include <cstdlib>
 #include "FinancialResources.h"
 
 
@@ -31,7 +30,7 @@ char FinancialResources::selectOptionFromeTheMenuUser() {
     cout << "---------------------------" << endl;
     cout << "4. Dodaj przychod" << endl;
     cout << "5. Dodaj wydatek" << endl;
-    cout << "6. Bilans z bierz¹cego miesiaca" << endl;
+    cout << "6. Bilans z bierzacego miesiaca" << endl;
     cout << "7. Bilans z poprzedniego miesiaca" << endl;
     cout << "8. Bilans z wybranego okresu" << endl;
     cout << "9. Zmien haslo" << endl;
@@ -51,3 +50,9 @@ void FinancialResources::singIn() {
     managerUser.singIn();
 }
 
+bool FinancialResources::isUserLoggedIn(){
+    managerUser.isUserLoggedIn();
+}
+void FinancialResources::addIncome() {
+    managerFinanses.addIncome();
+}

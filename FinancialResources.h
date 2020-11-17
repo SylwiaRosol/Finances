@@ -1,7 +1,9 @@
 #include <iostream>
+#include <cstdlib>
 
 #include "ManagerUser.h"
 #include "HelpfulMethods.h"
+#include "ManagerFinanses.h"
 
 
 using namespace std;
@@ -10,6 +12,7 @@ class FinancialResources
 {
 
     ManagerUser managerUser;
+    ManagerFinanses managerFinanses;
 
     public:
 
@@ -22,5 +25,6 @@ class FinancialResources
         void changePasswordLogedUser();
         void singOut();
         bool isUserLoggedIn();
+        void addIncome();
 
 };

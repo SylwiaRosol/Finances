@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-    char choice;
+    char choice, choice2;
     FinancialResources financialResources ("users.xml");
 
     while(1) {
@@ -22,6 +22,13 @@ int main()
 
         else if(choice == '2') {
             financialResources.singIn();
+            while(financialResources.isUserLoggedIn()) {
+                choice2 = financialResources.selectOptionFromeTheMenuUser();
+                if(choice2 = '4') {
+                 financialResources.addIncome();
+                }
+
+            }
         }
 
         else if (choice = '9') {

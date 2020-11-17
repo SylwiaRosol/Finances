@@ -94,3 +94,10 @@ int ManagerUser::singIn() {
     return 0;
 
 }
+
+bool ManagerUser::isUserLoggedIn() {
+    if (idLoggedUser != 0)
+        return true;
+    else
+        return false;
+}

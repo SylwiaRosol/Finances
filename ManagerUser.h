@@ -33,6 +33,7 @@ public:
     int singIn();
     void changePasswordLogedUser();
     void singOut();
+    bool isUserLoggedIn();
 };
 
 #endif
