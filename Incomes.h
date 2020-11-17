@@ -14,8 +14,20 @@ using namespace std;
 class Incomes : private Costs {
 
 
-    int idIncomes;
-    string categoryIncomes;
+    int idIncome;
+    string categoryIncome;
 public:
+
+    int getIdUser();
+    int getIdIncomes();
+    string getCategoryIncomes();
+    string getDate();
+    float getAmount();
+
+    void setIdUser(int newIdUser);
+    void setIdIncome(int newIdIncome);
+    void setCategoryIncome(string newCategoryIncome);
+    void setDate();
+    void setAmount();
 };
 #endif
