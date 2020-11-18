@@ -48,6 +48,20 @@ vector <User> FileXmlWitchUsers::loadUsersFromFile(){
         return users;
 }
 
+void FileXmlWitchUsers::changePasswordLogedUser(string password, int idLoggedUser){
+
+    string idUser = HelpfulMethods::conversionIntForString(idLoggedUser);
+    CMarkup xml;
+    xml.Load(getNameFile());
+    xml.FindElem("Users");
+    xml.IntoElem();
+    xml.FindElem("User");
+    if(xml.GetAttrib("id") == idUser){
+        xml.SetAttrib("password", password);
+    }
+    xml.Save(getNameFile());
+}
+
 
 
 

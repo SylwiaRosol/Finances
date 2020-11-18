@@ -14,11 +14,11 @@ class FinancialResources
     ManagerUser managerUser;
     ManagerFinanses *managerFinanses;
     const string NAME_FILE_WITH_INCOMES;
-
+    const string NAME_FILE_WITH_EXPENSES;
     public:
 
-    FinancialResources(string nameFileXmlWithUsers, string nameFileXmlWithIncomes)
-    : managerUser(nameFileXmlWithUsers), NAME_FILE_WITH_INCOMES(nameFileXmlWithIncomes) {
+    FinancialResources(string nameFileXmlWithUsers, string nameFileXmlWithIncomes, string nameFileXmlWithExpenses)
+    : managerUser(nameFileXmlWithUsers), NAME_FILE_WITH_INCOMES(nameFileXmlWithIncomes), NAME_FILE_WITH_EXPENSES(nameFileXmlWithExpenses) {
         managerFinanses = NULL;
     };
         ~FinancialResources() {

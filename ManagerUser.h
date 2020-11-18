@@ -18,7 +18,7 @@ class ManagerUser {
     vector <User> users;
     User user;
     FileXmlWitchUsers fileXmlWitchUsers;
-    int idLoggedUser;
+    int idLoggedUser = 0;
 
     bool isExistNameUser(string nameUser);
     int setIdNewUser();
