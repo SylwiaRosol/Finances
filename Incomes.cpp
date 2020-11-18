@@ -5,10 +5,10 @@ int Incomes::getIdUser(){
     return idUser;
 }
 int Incomes::getIdIncomes(){
-    return idIncomes;
+    return idIncome;
 }
 string Incomes::getCategoryIncomes(){
-    return categoryIncomes;
+    return categoryIncome;
 }
 string Incomes::getDate(){
     return date;

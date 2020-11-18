@@ -101,3 +101,7 @@ bool ManagerUser::isUserLoggedIn() {
     else
         return false;
 }
+
+int ManagerUser::getIdLoggedUser() {
+    return idLoggedUser;
+}

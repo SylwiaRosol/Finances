@@ -15,11 +15,12 @@ using namespace std;
 
 class Costs {
 
+protected:
    int idUser;
     float amount;
     string date;
 public:
-    string loadTodayDate();
+
 };
 
 #endif

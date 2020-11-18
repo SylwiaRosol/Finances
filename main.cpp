@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
     char choice, choice2;
-    FinancialResources financialResources ("users.xml");
+    FinancialResources financialResources ("users.xml", "incomes.xml");
 
     while(1) {
         choice = financialResources.selectOptionFromTheMainMenu();

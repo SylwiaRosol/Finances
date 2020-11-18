@@ -48,11 +48,14 @@ void FinancialResources::registerUser(){
 
 void FinancialResources::singIn() {
     managerUser.singIn();
+    if(managerUser.isUserLoggedIn()){
+        managerFinanses = new ManagerFinanses(/*NAME_FILE_WITH_INCOMES,*/ managerUser.getIdLoggedUser());
+    }
 }
 
 bool FinancialResources::isUserLoggedIn(){
     managerUser.isUserLoggedIn();
 }
 void FinancialResources::addIncome() {
-    managerFinanses.addIncome();
+    managerFinanses->addIncome();
 }

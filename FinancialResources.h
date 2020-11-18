@@ -12,12 +12,19 @@ class FinancialResources
 {
 
     ManagerUser managerUser;
-    ManagerFinanses managerFinanses;
+    ManagerFinanses *managerFinanses;
+    const string NAME_FILE_WITH_INCOMES;
 
     public:
 
-    FinancialResources(string nameFileXmlWitchUsers) : managerUser(nameFileXmlWitchUsers) {};
-       // ~FinancialResources();
+    FinancialResources(string nameFileXmlWithUsers, string nameFileXmlWithIncomes)
+    : managerUser(nameFileXmlWithUsers), NAME_FILE_WITH_INCOMES(nameFileXmlWithIncomes) {
+        managerFinanses = NULL;
+    };
+        ~FinancialResources() {
+        delete managerFinanses;
+        managerFinanses = NULL;
+    };
         char selectOptionFromTheMainMenu();
         char selectOptionFromeTheMenuUser();
         void registerUser();

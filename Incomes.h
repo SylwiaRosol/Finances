@@ -13,7 +13,7 @@ using namespace std;
 
 class Incomes : private Costs {
 
-
+    Costs cost;
     int idIncome;
     string categoryIncome;
 public:
@@ -27,7 +27,7 @@ public:
     void setIdUser(int newIdUser);
     void setIdIncome(int newIdIncome);
     void setCategoryIncome(string newCategoryIncome);
-    void setDate();
-    void setAmount();
+    void setDate(string newDate);
+    void setAmount(float newAmount);
 };
 #endif
