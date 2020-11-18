@@ -17,10 +17,12 @@ float Incomes::getAmount(){
     return amount;
 }
 
+
 void Incomes::setIdUser(int newIdUser){
     if(newIdUser >1){
     idUser = newIdUser;
 }}
+
 void Incomes::setIdIncome(int newIdIncome){
     if(newIdIncome > 1){
     idIncome = newIdIncome;

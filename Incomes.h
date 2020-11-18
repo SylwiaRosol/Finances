@@ -13,7 +13,6 @@ using namespace std;
 
 class Incomes : private Costs {
 
-    Costs cost;
     int idIncome;
     string categoryIncome;
 public:
