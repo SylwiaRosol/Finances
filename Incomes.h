@@ -16,6 +16,14 @@ class Incomes : private Costs {
     int idIncome;
     string categoryIncome;
 public:
+    Incomes(int idUser = 0, int idExpense = 0, string date = "", string categoryExpense = "",float amount = 0) {
+        this -> idUser = idUser;
+        this -> idIncome = idIncome;
+        this -> date = date;
+        this -> categoryIncome = categoryIncome;
+        this -> amount = amount;
+    }
+
 
     int getIdUser();
     int getIdIncomes();

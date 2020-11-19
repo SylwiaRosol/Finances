@@ -13,7 +13,7 @@ int main()
     FinancialResources financialResources ("users.xml", "incomes.xml", "expenses.xml");
 
     while(1) {
-        choice = financialResources.selectOptionFromTheMainMenu();
+       choice = financialResources.selectOptionFromTheMainMenu();
 
 
         if(choice == '1') {
@@ -27,7 +27,7 @@ int main()
                 if(secondChoice == '1') {
                  financialResources.addIncome();
                 }   else if( secondChoice == '2') {
-                    //dodaj wydatek
+                    financialResources.addExpense();
                 }   else if( secondChoice == '3') {
                     //bilans z miesiaca
                 }   else if( secondChoice == '4') {

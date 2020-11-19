@@ -12,14 +12,14 @@
 using namespace std;
 
 
-class FileXmlWitchUsers : public FileXml {
+class FileXmlWithUsers : public FileXml {
 
     string nameFile;
 
 
 public:
 
-    FileXmlWitchUsers(string nameFile) : FileXml (nameFile) {};
+    FileXmlWithUsers(string nameFile) : FileXml (nameFile) {};
     void addUserToTheFile (User user);
     vector <User> loadUsersFromFile();
     void changePasswordLogedUser (string password, int idLoggedUser);

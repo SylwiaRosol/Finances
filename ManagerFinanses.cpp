@@ -5,32 +5,43 @@ void ManagerFinanses::addIncome(){
     system("cls");
     cout << "-----DODAWANIE PRZYCHODU-----" << endl;
     income.setIdUser(ID_LOGGED_USER);
-    //income.setIdIncome();
+    income.setIdIncome(fileXmlWithIncomes.idNewIncomes());
     income.setDate(enterTheDate());
     income.setAmount(enterTheAmount());
     income.setCategoryIncome(enterADescription());
     incomes.push_back(income);
+    fileXmlWithIncomes.addIncomesToTheFile(income);
+}
+
+void ManagerFinanses::addExpense(){
+    system("cls");
+    cout << "-----DODAWANIE WYDATKU-----" << endl;
+    expense.setIdUser(ID_LOGGED_USER);
+    expense.setIdExpense(fileXmlWithExpenses.idNewExpense());
+    expense.setDate(enterTheDate());
+    expense.setAmount(enterTheAmount());
+    expense.setCategoryExpense(enterADescription());
+    expenses.push_back(expense);
+    fileXmlWithExpenses.addExpensesToTheFile(expense);
 }
 
 string ManagerFinanses::enterTheDate() {
     char choice;
     string date;
-    do{
-    cout <<"Czy chcesz dodaj przychod z dzisiejsza data? t-tak, n-nie"<<endl;
+    while(true) {
+    cout <<"Czy dodawany elemnt dotyczy dzisiejszego dnia? t-tak, n-nie"<<endl;
     choice = HelpfulMethods::loadSign();
     if(choice == 't') {
         date = loadTodayDate();
-        return date;
+        break;
     } else if (choice == 'n') {
         cout<<"Podaj date otrzymania przychodu" <<endl;
         date = HelpfulMethods::loadLine();
-        return date;
+        break;
     } else {
-        cout<<"Podajes bledna odpowiedz";
-        system("pause");
-    }
-    } while(choice!='n' || choice!='N' || choice !='t' || choice !='T');
-
+        cout<<"Podales bledna odpowiedz, sprobuj ponownie" << endl << endl;
+    }}
+    return date;
 }
 
 string ManagerFinanses::enterADescription() {
@@ -43,7 +54,7 @@ string ManagerFinanses::enterADescription() {
 float ManagerFinanses::enterTheAmount() {
     float amount;
     cout << "Podaj kwote. Kwote dzisietna podaj z kropka, a nie z przecinkiem."<< endl;
-    cin >> amount;
+    amount = HelpfulMethods::loadFloat();
     return amount;
 }
 
@@ -58,3 +69,4 @@ string ManagerFinanses::loadTodayDate() {
         string date = year + "-" + month + "-" + day;
     return date;
 }
+

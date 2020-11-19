@@ -27,11 +27,13 @@ class FinancialResources
     };
         char selectOptionFromTheMainMenu();
         char selectOptionFromeTheMenuUser();
+
         void registerUser();
         void singIn();
         void changePasswordLogedUser();
         void singOut();
         bool isUserLoggedIn();
-        void addIncome();
 
+        void addIncome();
+        void addExpense();
 };

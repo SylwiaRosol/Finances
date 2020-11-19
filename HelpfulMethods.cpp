@@ -17,6 +17,22 @@ int HelpfulMethods::conversionStringForInt(string text) {
     return number;
 }
 
+float HelpfulMethods::conversionStringForFloat(string text) {
+
+    float number;
+    istringstream iss(text);
+    iss >> number;
+    return number;
+}
+string HelpfulMethods::conversionFloatForString(float number){
+
+    ostringstream ss;
+    ss << number;
+    string str = ss.str();
+    return str;
+}
+
+
 string HelpfulMethods::changeFirstLetterForCapitalLetterAndOthersForLowercaseLetters(string text){
 
      if (!text.empty())
@@ -32,17 +48,13 @@ char HelpfulMethods::loadSign(){
     string input = "";
     char sign  = {0};
 
-    while (true)
-    {
+    while (true) {
         getline(cin, input);
 
-        if (input.length() == 1)
-        {
+        if (input.length() == 1) {
             sign = input[0];
             break;
-        }
-        else if (input.length() > 1)
-        {
+        } else if (input.length() > 1) {
             cout << "To nie jest pojedynczy znak. Wpisz ponownie." << endl;
         }
     }
@@ -61,8 +73,7 @@ int HelpfulMethods::loadIntiger() {
     string input = "";
     int number = 0;
 
-    while (true)
-    {
+    while (true) {
         getline(cin, input);
 
         stringstream myStream(input);
@@ -70,5 +81,29 @@ int HelpfulMethods::loadIntiger() {
             break;
         cout << "To nie jest liczba. Wpisz ponownie. " << endl;
     }
+    return number;
+}
+float HelpfulMethods::loadFloat() {
+
+    string input = "";
+    float number = 0;
+    bool numberIsNotGood = true;
+    bool numberHaveNotComma = true;
+
+    while (numberIsNotGood==true) {
+        getline(cin, input);
+        numberHaveNotComma = true;
+        for(int i=0; i< input.size(); i++){
+            if(input[i] == ',') {
+                cout << "Zapisz liczbe dziesietna z kropka, a nie z przecinkiem" << endl;
+                numberHaveNotComma = false;
+        }}
+        if(numberHaveNotComma == true){
+           stringstream myStream(input);
+        if (myStream >> number){
+            numberIsNotGood = false;
+        } else {
+        cout << "To nie jest liczba. Wpisz ponownie. " << endl;
+    }}}
     return number;
 }

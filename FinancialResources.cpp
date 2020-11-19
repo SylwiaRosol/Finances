@@ -50,7 +50,7 @@ void FinancialResources::registerUser(){
 void FinancialResources::singIn() {
     managerUser.singIn();
     if(managerUser.isUserLoggedIn()){
-        managerFinanses = new ManagerFinanses(/*NAME_FILE_WITH_INCOMES, NAME_FILE_WITH_EXPENSES*/ managerUser.getIdLoggedUser());
+        managerFinanses = new ManagerFinanses(NAME_FILE_WITH_INCOMES, NAME_FILE_WITH_EXPENSES, managerUser.getIdLoggedUser());
     }
 }
 void FinancialResources::singOut(){
@@ -68,3 +68,6 @@ void FinancialResources::addIncome() {
     managerFinanses->addIncome();
 }
 
+void FinancialResources::addExpense() {
+    managerFinanses->addExpense();
+}

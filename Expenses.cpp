@@ -19,12 +19,12 @@ float Expenses::getAmount(){
 
 
 void Expenses::setIdUser(int newIdUser){
-    if(newIdUser >1){
+    if(newIdUser >0){
     idUser = newIdUser;
 }}
 
 void Expenses::setIdExpense(int newIdExpense){
-    if(newIdExpense > 1){
+    if(newIdExpense > 0){
     idExpense = newIdExpense;
 }
 }

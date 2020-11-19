@@ -4,7 +4,7 @@
 void ManagerUser::registerUser(){
     User user = giveDataNewUser();
     users.push_back(user);
-    fileXmlWitchUsers.addUserToTheFile(user);
+    fileXmlWithUsers.addUserToTheFile(user);
     cout << "Konto zostalo zalozone" << endl;
     system("pause");
 }
@@ -109,7 +109,7 @@ void ManagerUser::changePasswordLogedUser(){
     for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++) {
         if( itr-> User::getIdUser() == getIdLoggedUser() ) {
             itr -> User::setPassword(newPassword);
-            fileXmlWitchUsers.changePasswordLogedUser(newPassword, idLoggedUser);
+            fileXmlWithUsers.changePasswordLogedUser(newPassword, idLoggedUser);
             cout << "Haslo zostalo zmienione" << endl;
             system("pause");
         }
