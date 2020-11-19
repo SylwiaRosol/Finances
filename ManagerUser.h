@@ -7,7 +7,7 @@
 #include <cstdlib>
 
 #include "User.h"
-#include "FileXmlWitchUsers.h"
+#include "FileXmlWithUsers.h"
 #include "HelpfulMethods.h"
 
 using namespace std;
@@ -17,22 +17,25 @@ class ManagerUser {
 
     vector <User> users;
     User user;
-    FileXmlWitchUsers fileXmlWitchUsers;
+    FileXmlWithUsers fileXmlWithUsers;
     int idLoggedUser;
 
     bool isExistNameUser(string nameUser);
     int setIdNewUser();
 
 public:
-    ManagerUser(string nameFileXmlWitchUser) : fileXmlWitchUsers(nameFileXmlWitchUser) {
-       users = fileXmlWitchUsers.loadUsersFromFile();
-         idLoggedUser = 0;};
+    ManagerUser(string nameFileXmlWithUser) : fileXmlWithUsers(nameFileXmlWithUser) {
+       users = fileXmlWithUsers.loadUsersFromFile();
+         idLoggedUser = 0;
+         };
 
     void registerUser();
     User giveDataNewUser();
     int singIn();
     void changePasswordLogedUser();
     void singOut();
+    bool isUserLoggedIn();
+    int getIdLoggedUser();
 };
 
 #endif

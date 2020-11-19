@@ -15,11 +15,14 @@ class HelpfulMethods {
 public:
     static string conversionIntForString(int number);
     static int conversionStringForInt(string text);
+    static float conversionStringForFloat(string text);
+    static string conversionFloatForString(float number);
     static string changeFirstLetterForCapitalLetterAndOthersForLowercaseLetters(string text);
 
     static char loadSign();
     static string loadLine();
     static int loadIntiger();
+    static float loadFloat();
   /*
     static bool isTheDateGood();
     static bool isTheYearGood();

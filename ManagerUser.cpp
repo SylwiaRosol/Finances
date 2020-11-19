@@ -4,7 +4,7 @@
 void ManagerUser::registerUser(){
     User user = giveDataNewUser();
     users.push_back(user);
-    fileXmlWitchUsers.addUserToTheFile(user);
+    fileXmlWithUsers.addUserToTheFile(user);
     cout << "Konto zostalo zalozone" << endl;
     system("pause");
 }
@@ -93,4 +93,38 @@ int ManagerUser::singIn() {
     system("pause");
     return 0;
 
+}
+
+void ManagerUser::singOut(){
+    idLoggedUser = 0;
+    cout << "Wylogowales sie poprawnie" << endl << endl;
+    system("pause");
+}
+
+void ManagerUser::changePasswordLogedUser(){
+    string newPassword;
+    cout <<"Podaj nowe haslo" << endl;
+    newPassword = HelpfulMethods::loadLine();
+
+    for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++) {
+        if( itr-> User::getIdUser() == getIdLoggedUser() ) {
+            itr -> User::setPassword(newPassword);
+            fileXmlWithUsers.changePasswordLogedUser(newPassword, idLoggedUser);
+            cout << "Haslo zostalo zmienione" << endl;
+            system("pause");
+        }
+
+    }
+}
+
+
+bool ManagerUser::isUserLoggedIn() {
+    if (idLoggedUser != 0)
+        return true;
+    else
+        return false;
+}
+
+int ManagerUser::getIdLoggedUser() {
+    return idLoggedUser;
 }

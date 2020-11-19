@@ -1,7 +1,7 @@
-#include "FileXmlWitchUsers.h"
+#include "FileXmlWithUsers.h"
 
 
-void FileXmlWitchUsers::addUserToTheFile (User user) {
+void FileXmlWithUsers::addUserToTheFile (User user) {
     CMarkup xml;
     bool isFileExist = xml.Load(getNameFile());
 
@@ -21,7 +21,7 @@ void FileXmlWitchUsers::addUserToTheFile (User user) {
 }
 
 
-vector <User> FileXmlWitchUsers::loadUsersFromFile(){
+vector <User> FileXmlWithUsers::loadUsersFromFile(){
     CMarkup xml;
     vector <User> users;
     User user;
@@ -46,6 +46,20 @@ vector <User> FileXmlWitchUsers::loadUsersFromFile(){
         }
 
         return users;
+}
+
+void FileXmlWithUsers::changePasswordLogedUser(string password, int idLoggedUser){
+
+    string idUser = HelpfulMethods::conversionIntForString(idLoggedUser);
+    CMarkup xml;
+    xml.Load(getNameFile());
+    xml.FindElem("Users");
+    xml.IntoElem();
+    xml.FindElem("User");
+    if(xml.GetAttrib("id") == idUser){
+        xml.SetAttrib("password", password);
+    }
+    xml.Save(getNameFile());
 }
 
 

@@ -3,3 +3,5 @@ finance*
 bin/
 obj/
 users.xml
+expenses.xml
+incomes.xml

@@ -1,4 +1,3 @@
-#include <cstdlib>
 #include "FinancialResources.h"
 
 
@@ -29,18 +28,19 @@ char FinancialResources::selectOptionFromeTheMenuUser() {
     system("cls");
     cout << "    >>> MENU  UZYTKOWNIKA <<<" << endl;
     cout << "---------------------------" << endl;
-    cout << "4. Dodaj przychod" << endl;
-    cout << "5. Dodaj wydatek" << endl;
-    cout << "6. Bilans z bierz¹cego miesiaca" << endl;
-    cout << "7. Bilans z poprzedniego miesiaca" << endl;
-    cout << "8. Bilans z wybranego okresu" << endl;
-    cout << "9. Zmien haslo" << endl;
-    cout << "10. Wyloguj sie" << endl;
+    cout << "1. Dodaj przychod" << endl;
+    cout << "2. Dodaj wydatek" << endl;
+    cout << "3. Bilans z bierzacego miesiaca" << endl;
+    cout << "4. Bilans z poprzedniego miesiaca" << endl;
+    cout << "5. Bilans z wybranego okresu" << endl;
+    cout << "6. Zmien haslo" << endl;
+    cout << "7. Wyloguj sie" << endl;
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
     choice = HelpfulMethods::loadSign();
    return choice;
 }
+
 
 
 void FinancialResources::registerUser(){
@@ -49,5 +49,25 @@ void FinancialResources::registerUser(){
 
 void FinancialResources::singIn() {
     managerUser.singIn();
+    if(managerUser.isUserLoggedIn()){
+        managerFinanses = new ManagerFinanses(NAME_FILE_WITH_INCOMES, NAME_FILE_WITH_EXPENSES, managerUser.getIdLoggedUser());
+    }
+}
+void FinancialResources::singOut(){
+    managerUser.singOut();
+}
+void FinancialResources::changePasswordLogedUser(){
+    managerUser.changePasswordLogedUser();
 }
 
+bool FinancialResources::isUserLoggedIn(){
+    managerUser.isUserLoggedIn();
+}
+
+void FinancialResources::addIncome() {
+    managerFinanses->addIncome();
+}
+
+void FinancialResources::addExpense() {
+    managerFinanses->addExpense();
+}
