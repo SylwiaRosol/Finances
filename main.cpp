@@ -29,9 +29,9 @@ int main()
                 }   else if( secondChoice == '2') {
                     financialResources.addExpense();
                 }   else if( secondChoice == '3') {
-                    //bilans z miesiaca
+                    financialResources.showBilanceWithThisMonth();
                 }   else if( secondChoice == '4') {
-                    //bilans z poprzedniego miesiaza
+                    financialResources.showBalanceWithPreviousMonth();
                 }   else if( secondChoice == '5') {
                     //bilans wybrany
                 }   else if( secondChoice == '6') {

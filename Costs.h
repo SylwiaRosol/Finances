@@ -19,7 +19,7 @@ protected:
    int idUser;
     float amount;
     string date;
-public:
+    int dateInt;
 
 };
 

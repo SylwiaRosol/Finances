@@ -11,6 +11,8 @@ void ManagerFinanses::addIncome(){
     income.setCategoryIncome(enterADescription());
     incomes.push_back(income);
     fileXmlWithIncomes.addIncomesToTheFile(income);
+    string date = income.getDate();
+    income.setDateInt(HelpfulMethods::changeDate(date));
 }
 
 void ManagerFinanses::addExpense(){
@@ -23,6 +25,9 @@ void ManagerFinanses::addExpense(){
     expense.setCategoryExpense(enterADescription());
     expenses.push_back(expense);
     fileXmlWithExpenses.addExpensesToTheFile(expense);
+    string date = expense.getDate();
+    expense.setDateInt(HelpfulMethods::changeDate(date));
+
 }
 
 string ManagerFinanses::enterTheDate() {
@@ -32,7 +37,7 @@ string ManagerFinanses::enterTheDate() {
     cout <<"Czy dodawany elemnt dotyczy dzisiejszego dnia? t-tak, n-nie"<<endl;
     choice = HelpfulMethods::loadSign();
     if(choice == 't') {
-        date = loadTodayDate();
+        date = HelpfulMethods::loadTodayDate();
         break;
     } else if (choice == 'n') {
         cout<<"Podaj date otrzymania przychodu" <<endl;
@@ -58,15 +63,73 @@ float ManagerFinanses::enterTheAmount() {
     return amount;
 }
 
+void ManagerFinanses::showBalanceWithThisMonth(){
+    float amountIncomes=0, amountExpenses=0;
 
-string ManagerFinanses::loadTodayDate() {
-        string year, month, day;
-        SYSTEMTIME st;
-        GetSystemTime(&st);
-        year = HelpfulMethods::conversionIntForString(st.wYear);
-        month = HelpfulMethods::conversionIntForString(st.wMonth);
-        day = HelpfulMethods::conversionIntForString(st.wDay);
-        string date = year + "-" + month + "-" + day;
-    return date;
+    system("cls");
+    cout<<"------BILANS Z OBECNEGO MIESIACA------" << endl << endl;
+    cout<< "PRZYCHODY:"<< endl;
+    for (vector <Incomes>::iterator itr = incomes.begin(); itr != incomes.end(); itr++) {
+        if ((itr-> Incomes::getIdUser() == ID_LOGGED_USER) && (itr -> Incomes::getDateInt() >= HelpfulMethods::beginningOfThisMonth())) {
+
+        cout << "Data: " << itr ->Incomes::getDate() << " Kwota: " << itr -> Incomes::getAmount() <<" PLN   Kategoria: " << itr -> Incomes::getCategoryIncomes() << endl;
+            amountIncomes +=  itr -> Incomes::getAmount();
+    }}
+
+
+    cout<<endl << "WYDATKI:"<< endl;
+    for (vector <Expenses>::iterator itr = expenses.begin(); itr != expenses.end(); itr++) {
+        if ((itr-> Expenses::getIdUser() == ID_LOGGED_USER) && (itr -> Expenses::getDateInt() >= HelpfulMethods::beginningOfThisMonth())) {
+
+        cout << "Data: " << itr -> Expenses::getDate() << " Kwota: " << itr -> Expenses::getAmount() <<" PLN   Kategoria: " << itr -> Expenses::getCategoryExpense() << endl;
+            amountExpenses += itr -> Expenses::getAmount();
+    }}
+
+        cout << endl << endl <<"DOCHODY W OBECNYM MIESIACU TO: "<< amountIncomes<< " PLN"<< endl;
+        cout  <<"WYDATKI Z OBECNEGO MIESIACA TO: "<< amountExpenses << " PLN"<< endl;
+        cout << "BILANS Z OBECNEGO MIESIACA TO: " << amountIncomes-amountExpenses << " PLN" << endl << endl;
+
+    system("pause");
 }
 
+void ManagerFinanses::showBalanceWithPreviousMonth(){
+
+    float amountIncomes=0, amountExpenses=0;
+    system("cls");
+    cout<<"------BILANS Z POPRZEDNIEGO MIESIACA------" << endl << endl;
+    cout<< "PRZYCHODY:"<< endl;
+    for (vector <Incomes>::iterator itr = incomes.begin(); itr != incomes.end(); itr++) {
+        if(( itr-> Incomes::getIdUser() == ID_LOGGED_USER ) && (itr -> Incomes::getDateInt() >= HelpfulMethods::beginningOfPreviousMonth()) && (itr -> Incomes::getDateInt() <= HelpfulMethods::theEndOfPreviousMonth())) {
+        cout << "Data: " << itr ->Incomes::getDate() << " Kwota: " << itr -> Incomes::getAmount() <<" PLN   Kategoria: " << itr -> Incomes::getCategoryIncomes() << endl;
+            amountIncomes +=  itr -> Incomes::getAmount();
+
+    }}
+
+        cout <<endl << "WYDATKI:" << endl;
+    for (vector <Expenses>::iterator itr = expenses.begin(); itr != expenses.end(); itr++) {
+        if(( itr-> Expenses::getIdUser() == ID_LOGGED_USER ) && (itr -> Expenses::getDateInt() >= HelpfulMethods::beginningOfPreviousMonth()) && (itr -> Expenses::getDateInt() <= HelpfulMethods::theEndOfPreviousMonth())) {
+        cout << "Data: " << itr ->Expenses::getDate() << " Kwota: " << itr -> Expenses::getAmount() <<" PLN   Kategoria: " << itr -> Expenses::getCategoryExpense() << endl;
+            amountExpenses +=  itr -> Expenses::getAmount();
+
+    }}
+
+
+    cout << endl << endl <<"DOCHODY W POPRZEDNIM MIESIACU TO: "<< amountIncomes<< " PLN"<< endl;
+    cout  <<"WYDATKI Z POPRZEDNIEGO MIESIACA TO: "<< amountExpenses << " PLN"<< endl;
+    cout << "BILANS Z POPRZEDNIEGO MIESIACA TO: " << amountIncomes-amountExpenses << " PLN" << endl << endl;
+
+
+    system("pause");
+}
+
+/*
+int ManagerFinanses::getIdLoggedUser(){
+    return ID_LOGGED_USER;
+}
+vector <Incomes> ManagerFinanses::getVectorIncomes(){
+    return incomes;
+}
+vector <Expenses> ManagerFinanses::getVectorExpeses(){
+    return expenses;
+}
+*/

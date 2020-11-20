@@ -41,6 +41,7 @@ vector <Expenses> FileXmlWithExpenses::loadExpensesFromFile() {
             expense.setDate(xml.GetAttrib("date"));
             expense.setCategoryExpense(xml.GetAttrib("category"));
             expense.setAmount(HelpfulMethods::conversionStringForFloat(xml.GetAttrib("amount")));
+            expense.setDateInt(HelpfulMethods::changeDate(xml.GetAttrib("date")));
             expenses.push_back(expense);
         }
 

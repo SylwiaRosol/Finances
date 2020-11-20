@@ -23,6 +23,12 @@ public:
     static string loadLine();
     static int loadIntiger();
     static float loadFloat();
+
+    static string loadTodayDate();
+    static int changeDate(string date);
+    static int beginningOfThisMonth();
+    static int beginningOfPreviousMonth();
+    static int theEndOfPreviousMonth();
   /*
     static bool isTheDateGood();
     static bool isTheYearGood();

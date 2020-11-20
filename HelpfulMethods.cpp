@@ -107,3 +107,67 @@ float HelpfulMethods::loadFloat() {
     }}}
     return number;
 }
+
+
+string HelpfulMethods::loadTodayDate() {
+        string year, month, day;
+        SYSTEMTIME st;
+        GetSystemTime(&st);
+        year = HelpfulMethods::conversionIntForString(st.wYear);
+        month = HelpfulMethods::conversionIntForString(st.wMonth);
+        day = HelpfulMethods::conversionIntForString(st.wDay);
+        string date = year + "-" + month + "-" + day;
+    return date;
+}
+
+int HelpfulMethods::changeDate(string date){
+
+        for(int i=0; i<date.size(); i++){
+            if(date[i] == '-') {
+        date.erase(i,1);
+       }}
+       int changeDate = conversionStringForInt(date);
+       return changeDate;
+}
+
+int HelpfulMethods::beginningOfThisMonth(){
+    int startingDate;
+    string date = loadTodayDate();
+    date.erase(8,2);
+    date.insert(8,"0");
+    date.insert(9,"1");
+    startingDate = changeDate(date);
+    return startingDate;
+
+}
+int HelpfulMethods::beginningOfPreviousMonth(){
+    int date = beginningOfThisMonth();
+    SYSTEMTIME st;
+    GetSystemTime(&st);
+
+    if(st.wMonth == 1){
+        date = date -8900;
+    } else {
+        date = date - 100;
+    }
+    return date;
+}
+int HelpfulMethods::theEndOfPreviousMonth(){
+    SYSTEMTIME st;
+    GetSystemTime(&st);
+    int date;
+    if( (st.wMonth == 1) || (st.wMonth == 5) || (st.wMonth == 7) || (st.wMonth == 10) || (st.wMonth == 12)) {
+        date = beginningOfPreviousMonth() + 30;
+    }
+    if ((st.wMonth == 2) || (st.wMonth == 4) || (st.wMonth == 6) || (st.wMonth == 8) || (st.wMonth == 9) || (st.wMonth == 11)) {
+        date = beginningOfPreviousMonth() + 31;
+    }
+    if((st.wMonth == 3)) {
+        if(st.wYear %4 == 0){
+            date = beginningOfPreviousMonth() + 29;
+        } else {
+            date = beginningOfPreviousMonth() + 28;
+        }
+    }
+    return date;
+}

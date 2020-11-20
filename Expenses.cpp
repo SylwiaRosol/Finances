@@ -16,6 +16,9 @@ string Expenses::getDate(){
 float Expenses::getAmount(){
     return amount;
 }
+int Expenses::getDateInt(){
+    return dateInt;
+}
 
 
 void Expenses::setIdUser(int newIdUser){
@@ -36,4 +39,7 @@ void Expenses::setDate(string newDate){
 }
 void Expenses::setAmount(float newAmount){
     amount = newAmount;
+}
+void Expenses::setDateInt(int newDateInt){
+    dateInt = newDateInt;
 }

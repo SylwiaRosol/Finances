@@ -16,6 +16,9 @@ string Incomes::getDate(){
 float Incomes::getAmount(){
     return amount;
 }
+int Incomes::getDateInt(){
+    return dateInt;
+}
 
 
 void Incomes::setIdUser(int newIdUser){
@@ -36,4 +39,7 @@ void Incomes::setDate(string newDate){
 }
 void Incomes::setAmount(float newAmount){
     amount = newAmount;
+}
+void Incomes::setDateInt(int newDateInt){
+    dateInt = newDateInt;
 }
