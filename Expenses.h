@@ -25,6 +25,11 @@ public:
         this -> dateInt = dateInt;
     }
 
+    bool operator< (const Expenses &other) const {
+        return dateInt < other.dateInt;
+    }
+
+
     int getIdUser();
     int getIdExpense();
     string getCategoryExpense();

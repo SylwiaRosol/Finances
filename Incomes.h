@@ -24,7 +24,9 @@ public:
         this -> amount = amount;
         this -> dateInt = dateInt;
     }
-
+    bool operator< (const Incomes &other) const {
+        return dateInt < other.dateInt;
+    }
 
     int getIdUser();
     int getIdIncomes();

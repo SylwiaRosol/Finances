@@ -20,6 +20,9 @@ protected:
     float amount;
     string date;
     int dateInt;
+public:
+
+
 
 };
 

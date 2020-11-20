@@ -20,6 +20,8 @@ class ManagerUser {
     FileXmlWithUsers fileXmlWithUsers;
     int idLoggedUser;
 
+
+    User giveDataNewUser();
     bool isExistNameUser(string nameUser);
     int setIdNewUser();
 
@@ -30,7 +32,6 @@ public:
          };
 
     void registerUser();
-    User giveDataNewUser();
     int singIn();
     void changePasswordLogedUser();
     void singOut();

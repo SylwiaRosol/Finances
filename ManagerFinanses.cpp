@@ -36,10 +36,10 @@ string ManagerFinanses::enterTheDate() {
     while(true) {
     cout <<"Czy dodawany elemnt dotyczy dzisiejszego dnia? t-tak, n-nie"<<endl;
     choice = HelpfulMethods::loadSign();
-    if(choice == 't') {
+    if((choice == 't') || (choice == 'T')) {
         date = HelpfulMethods::loadTodayDate();
         break;
-    } else if (choice == 'n') {
+    } else if ((choice == 'n') || (choice == 'N')) {
         cout<<"Podaj date otrzymania przychodu" <<endl;
         date = HelpfulMethods::loadLine();
         break;
@@ -63,9 +63,9 @@ float ManagerFinanses::enterTheAmount() {
     return amount;
 }
 
-void ManagerFinanses::showBalanceWithThisMonth(){
+void ManagerFinanses::showBalanceFromThisMonth(){
     float amountIncomes=0, amountExpenses=0;
-
+    sortVector();
     system("cls");
     cout<<"------BILANS Z OBECNEGO MIESIACA------" << endl << endl;
     cout<< "PRZYCHODY:"<< endl;
@@ -84,17 +84,13 @@ void ManagerFinanses::showBalanceWithThisMonth(){
         cout << "Data: " << itr -> Expenses::getDate() << " Kwota: " << itr -> Expenses::getAmount() <<" PLN   Kategoria: " << itr -> Expenses::getCategoryExpense() << endl;
             amountExpenses += itr -> Expenses::getAmount();
     }}
-
-        cout << endl << endl <<"DOCHODY W OBECNYM MIESIACU TO: "<< amountIncomes<< " PLN"<< endl;
-        cout  <<"WYDATKI Z OBECNEGO MIESIACA TO: "<< amountExpenses << " PLN"<< endl;
-        cout << "BILANS Z OBECNEGO MIESIACA TO: " << amountIncomes-amountExpenses << " PLN" << endl << endl;
-
+    showBalance(amountIncomes, amountExpenses);
     system("pause");
 }
 
-void ManagerFinanses::showBalanceWithPreviousMonth(){
-
+void ManagerFinanses::showBalanceFromPreviousMonth(){
     float amountIncomes=0, amountExpenses=0;
+    sortVector();
     system("cls");
     cout<<"------BILANS Z POPRZEDNIEGO MIESIACA------" << endl << endl;
     cout<< "PRZYCHODY:"<< endl;
@@ -112,24 +108,52 @@ void ManagerFinanses::showBalanceWithPreviousMonth(){
             amountExpenses +=  itr -> Expenses::getAmount();
 
     }}
-
-
-    cout << endl << endl <<"DOCHODY W POPRZEDNIM MIESIACU TO: "<< amountIncomes<< " PLN"<< endl;
-    cout  <<"WYDATKI Z POPRZEDNIEGO MIESIACA TO: "<< amountExpenses << " PLN"<< endl;
-    cout << "BILANS Z POPRZEDNIEGO MIESIACA TO: " << amountIncomes-amountExpenses << " PLN" << endl << endl;
-
-
+    showBalance(amountIncomes, amountExpenses);
     system("pause");
 }
 
-/*
-int ManagerFinanses::getIdLoggedUser(){
-    return ID_LOGGED_USER;
+void ManagerFinanses::showBalanceFromSelectedTime() {
+    float amountIncomes=0, amountExpenses=0;
+    string startDate, endDate;
+    int startDateInt, endDateInt;
+    sortVector();
+    system("cls");
+    cout<<"------BILANS Z POPRZEDNIEGO MIESIACA------" << endl << endl;
+    cout<< "Podaj date poczatkowa" << endl;
+    startDate = HelpfulMethods::loadLine();
+    cout <<"Podaj date koncowa" << endl;
+    endDate = HelpfulMethods::loadLine();
+      startDateInt = HelpfulMethods::changeDate(startDate);
+       endDateInt = HelpfulMethods::changeDate(endDate);
+    cout<< "PRZYCHODY:"<< endl;
+    for (vector <Incomes>::iterator itr = incomes.begin(); itr != incomes.end(); itr++) {
+        if(( itr-> Incomes::getIdUser() == ID_LOGGED_USER ) && (itr -> Incomes::getDateInt() >= startDateInt) && (itr -> Incomes::getDateInt() <= endDateInt)) {
+        cout << "Data: " << itr ->Incomes::getDate() << " Kwota: " << itr -> Incomes::getAmount() <<" PLN   Kategoria: " << itr -> Incomes::getCategoryIncomes() << endl;
+            amountIncomes +=  itr -> Incomes::getAmount();
+
+    }}
+
+        cout <<endl << "WYDATKI:" << endl;
+    for (vector <Expenses>::iterator itr = expenses.begin(); itr != expenses.end(); itr++) {
+        if(( itr-> Expenses::getIdUser() == ID_LOGGED_USER ) && (itr -> Expenses::getDateInt() >= startDateInt) && (itr -> Expenses::getDateInt() <= endDateInt)) {
+        cout << "Data: " << itr ->Expenses::getDate() << " Kwota: " << itr -> Expenses::getAmount() <<" PLN   Kategoria: " << itr -> Expenses::getCategoryExpense() << endl;
+            amountExpenses +=  itr -> Expenses::getAmount();
+
+    }}
+    showBalance(amountIncomes, amountExpenses);
+    system("pause");
+
 }
-vector <Incomes> ManagerFinanses::getVectorIncomes(){
-    return incomes;
+
+void ManagerFinanses::sortVector(){
+
+    sort(incomes.begin(), incomes.end());
+    sort(expenses.begin(), expenses.end());
 }
-vector <Expenses> ManagerFinanses::getVectorExpeses(){
-    return expenses;
+
+void ManagerFinanses::showBalance(float amountIncomes, float amountExpenses) {
+
+        cout << endl << endl <<"DOCHODY: "<< amountIncomes<< " PLN"<< endl;
+        cout  <<"WYDATKI: "<< amountExpenses << " PLN"<< endl;
+        cout << "BILANS: " << amountIncomes-amountExpenses << " PLN" << endl << endl;
 }
-*/

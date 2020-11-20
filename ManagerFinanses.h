@@ -13,7 +13,6 @@
 #include "Expenses.h"
 #include "FileXMLWithIncomes.h"
 #include "FileXMLWithExpenses.h"
-#include "Balance.h"
 
 
 using namespace std;
@@ -31,6 +30,8 @@ class ManagerFinanses {
     string enterTheDate();
     string enterADescription();
     float enterTheAmount();
+    void sortVector();
+    void showBalance(float amountIncomes, float amountExpenses);
 
 
     public:
@@ -42,13 +43,9 @@ class ManagerFinanses {
         void addIncome();
         void addExpense();
 
-        void showBalanceWithThisMonth();
-        void showBalanceWithPreviousMonth();
+        void showBalanceFromThisMonth();
+        void showBalanceFromPreviousMonth();
+        void showBalanceFromSelectedTime();
 
-    /*
-        int getIdLoggedUser();
-        vector <Incomes> getVectorIncomes();
-        vector <Expenses> getVectorExpeses();
-    */
 };
 #endif
