@@ -40,9 +40,12 @@ string ManagerFinanses::enterTheDate() {
         date = HelpfulMethods::loadTodayDate();
         break;
     } else if ((choice == 'n') || (choice == 'N')) {
-        cout<<"Podaj date otrzymania przychodu" <<endl;
+        while(true) {
+        cout<<"Podaj date wprowadzanego kosztu" <<endl;
         date = HelpfulMethods::loadLine();
-        break;
+        if(HelpfulMethods::isTheDateGood(date)== true){
+            break; break;
+        }} break;
     } else {
         cout<<"Podales bledna odpowiedz, sprobuj ponownie" << endl << endl;
     }}
@@ -119,12 +122,21 @@ void ManagerFinanses::showBalanceFromSelectedTime() {
     sortVector();
     system("cls");
     cout<<"------BILANS Z POPRZEDNIEGO MIESIACA------" << endl << endl;
+    while(true){
     cout<< "Podaj date poczatkowa" << endl;
     startDate = HelpfulMethods::loadLine();
-    cout <<"Podaj date koncowa" << endl;
-    endDate = HelpfulMethods::loadLine();
-      startDateInt = HelpfulMethods::changeDate(startDate);
-       endDateInt = HelpfulMethods::changeDate(endDate);
+    if(HelpfulMethods::isTheDateGood(startDate)== true){
+        cout <<"Podaj date koncowa" << endl;
+        endDate = HelpfulMethods::loadLine();
+        if (HelpfulMethods::isTheDateGood(endDate)== true){
+            startDateInt = HelpfulMethods::changeDate(startDate);
+            endDateInt = HelpfulMethods::changeDate(endDate);
+            if ( startDateInt < endDateInt){
+                break; break; break; break;
+            } else {
+                cout << "Data poczatkowa powinna byc data wczesniejsza, niz data koncowa" << endl;
+            }}}}
+
     cout<< "PRZYCHODY:"<< endl;
     for (vector <Incomes>::iterator itr = incomes.begin(); itr != incomes.end(); itr++) {
         if(( itr-> Incomes::getIdUser() == ID_LOGGED_USER ) && (itr -> Incomes::getDateInt() >= startDateInt) && (itr -> Incomes::getDateInt() <= endDateInt)) {

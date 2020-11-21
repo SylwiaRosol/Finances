@@ -29,12 +29,12 @@ public:
     static int beginningOfThisMonth();
     static int beginningOfPreviousMonth();
     static int theEndOfPreviousMonth();
-  /*
-    static bool isTheDateGood();
-    static bool isTheYearGood();
-    static bool isTheMonthGood();
-    static bool isTheDayGood();
-*/
+
+    static bool isTheDateGood(string data);
+    static bool isTheYearGood(string data);
+    static bool isTheMonthGood(string data);
+    static bool isTheDayGood(string data);
+
 };
 
 #endif
