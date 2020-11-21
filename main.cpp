@@ -29,11 +29,11 @@ int main()
                 }   else if( secondChoice == '2') {
                     financialResources.addExpense();
                 }   else if( secondChoice == '3') {
-                    //bilans z miesiaca
+                    financialResources.showBalanceFromThisMonth();
                 }   else if( secondChoice == '4') {
-                    //bilans z poprzedniego miesiaza
+                    financialResources.showBalanceFromPreviousMonth();
                 }   else if( secondChoice == '5') {
-                    //bilans wybrany
+                    financialResources.showBalanceFromSelectedTime();
                 }   else if( secondChoice == '6') {
                     financialResources.changePasswordLogedUser();
                 }   else if( secondChoice == '7') {

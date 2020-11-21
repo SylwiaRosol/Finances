@@ -36,4 +36,9 @@ class FinancialResources
 
         void addIncome();
         void addExpense();
+
+        void showBalanceFromThisMonth();
+        void showBalanceFromPreviousMonth();
+        void showBalanceFromSelectedTime();
+
 };

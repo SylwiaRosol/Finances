@@ -71,3 +71,15 @@ void FinancialResources::addIncome() {
 void FinancialResources::addExpense() {
     managerFinanses->addExpense();
 }
+
+void FinancialResources::showBalanceFromThisMonth(){
+    managerFinanses->showBalanceFromThisMonth();
+}
+
+void FinancialResources::showBalanceFromPreviousMonth() {
+    managerFinanses->showBalanceFromPreviousMonth();
+}
+
+void FinancialResources::showBalanceFromSelectedTime(){
+    managerFinanses->showBalanceFromSelectedTime();
+}

@@ -27,6 +27,12 @@ class ManagerFinanses {
     FileXmlWithExpenses fileXmlWithExpenses;
     const int ID_LOGGED_USER;
 
+    string enterTheDate();
+    string enterADescription();
+    float enterTheAmount();
+    void sortVector();
+    void showBalance(float amountIncomes, float amountExpenses);
+
 
     public:
         ManagerFinanses (string nameFileWithIncomes, string nameFileWithExpenses, int idLoggedUser)
@@ -36,10 +42,10 @@ class ManagerFinanses {
         };
         void addIncome();
         void addExpense();
-        string enterTheDate();
-        string enterADescription();
-        float enterTheAmount();
-        string loadTodayDate();
-        int setIdNewIncomes();
+
+        void showBalanceFromThisMonth();
+        void showBalanceFromPreviousMonth();
+        void showBalanceFromSelectedTime();
+
 };
 #endif

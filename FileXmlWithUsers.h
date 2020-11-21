@@ -16,13 +16,10 @@ class FileXmlWithUsers : public FileXml {
 
     string nameFile;
 
-
 public:
 
     FileXmlWithUsers(string nameFile) : FileXml (nameFile) {};
     void addUserToTheFile (User user);
     vector <User> loadUsersFromFile();
     void changePasswordLogedUser (string password, int idLoggedUser);
-
-
 };
