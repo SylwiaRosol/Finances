@@ -51,7 +51,11 @@ int FileXmlWithIncomes::idNewIncomes() {
     CMarkup xml;
    int id;
    string text;
-    xml.Load(getNameFile());
+    bool isFileExist = xml.Load(getNameFile());
+           if(!isFileExist) {
+            return 1;
+        }
+
     xml.FindElem("Incomes");
         xml.IntoElem();
 

@@ -52,7 +52,11 @@ int FileXmlWithExpenses::idNewExpense() {
     CMarkup xml;
    int id;
    string text;
-    xml.Load(getNameFile());
+    bool isFileExist = xml.Load(getNameFile());
+           if(!isFileExist) {
+            return 1;
+        }
+
     xml.FindElem("Expenses");
         xml.IntoElem();
 
