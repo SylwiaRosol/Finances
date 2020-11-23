@@ -9,10 +9,10 @@ void ManagerFinanses::addIncome(){
     income.setDate(enterTheDate());
     income.setAmount(enterTheAmount());
     income.setCategoryIncome(enterADescription());
-    incomes.push_back(income);
     fileXmlWithIncomes.addIncomesToTheFile(income);
     string date = income.getDate();
     income.setDateInt(HelpfulMethods::changeDate(date));
+    incomes.push_back(income);
 }
 
 void ManagerFinanses::addExpense(){
@@ -23,11 +23,10 @@ void ManagerFinanses::addExpense(){
     expense.setDate(enterTheDate());
     expense.setAmount(enterTheAmount());
     expense.setCategoryExpense(enterADescription());
-    expenses.push_back(expense);
     fileXmlWithExpenses.addExpensesToTheFile(expense);
     string date = expense.getDate();
     expense.setDateInt(HelpfulMethods::changeDate(date));
-
+    expenses.push_back(expense);
 }
 
 string ManagerFinanses::enterTheDate() {
