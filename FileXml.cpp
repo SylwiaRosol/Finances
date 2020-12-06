@@ -7,8 +7,5 @@ string FileXml::getNameFile() {
 bool FileXml::isFileEmpty(fstream &file) {
 
     file.seekg(0, ios::end);
-    if (file.tellg() == 0)
-        return true;
-    else
-        return false;
+    return (file.tellg() == 0) ? true : false;
 }

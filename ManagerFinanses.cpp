@@ -141,7 +141,6 @@ void ManagerFinanses::showBalanceFromSelectedTime() {
         if(( itr-> Incomes::getIdUser() == ID_LOGGED_USER ) && (itr -> Incomes::getDateInt() >= startDateInt) && (itr -> Incomes::getDateInt() <= endDateInt)) {
         cout << "Data: " << itr ->Incomes::getDate() << " Kwota: " << itr -> Incomes::getAmount() <<" PLN   Kategoria: " << itr -> Incomes::getCategoryIncomes() << endl;
             amountIncomes +=  itr -> Incomes::getAmount();
-
     }}
 
         cout <<endl << "WYDATKI:" << endl;
@@ -149,7 +148,6 @@ void ManagerFinanses::showBalanceFromSelectedTime() {
         if(( itr-> Expenses::getIdUser() == ID_LOGGED_USER ) && (itr -> Expenses::getDateInt() >= startDateInt) && (itr -> Expenses::getDateInt() <= endDateInt)) {
         cout << "Data: " << itr ->Expenses::getDate() << " Kwota: " << itr -> Expenses::getAmount() <<" PLN   Kategoria: " << itr -> Expenses::getCategoryExpense() << endl;
             amountExpenses +=  itr -> Expenses::getAmount();
-
     }}
     showBalance(amountIncomes, amountExpenses);
     system("pause");

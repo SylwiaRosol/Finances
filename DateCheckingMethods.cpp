@@ -38,12 +38,8 @@ int DateCheckingMethods::beginningOfPreviousMonth(){
     SYSTEMTIME st;
     GetSystemTime(&st);
 
-    if(st.wMonth == 1){
-        date = date -8900;
-    } else {
-        date = date - 100;
-    }
-    return date;
+    return (st.wMonth == 1) ? date -8900 :  date - 100;
+
 }
 int DateCheckingMethods::theEndOfPreviousMonth(){
     SYSTEMTIME st;
@@ -56,11 +52,7 @@ int DateCheckingMethods::theEndOfPreviousMonth(){
         date = beginningOfPreviousMonth() + 31;
     }
     if((st.wMonth == 3)) {
-        if(st.wYear %4 == 0){
-            date = beginningOfPreviousMonth() + 29;
-        } else {
-            date = beginningOfPreviousMonth() + 28;
-        }
+        return(st.wYear %4 == 0) ? date = beginningOfPreviousMonth() + 29 :  date = beginningOfPreviousMonth() + 28;
     }
     return date;
 }
@@ -79,11 +71,7 @@ bool DateCheckingMethods::isTheDateGood(string date){
                 return false;
         }}}
 
-        if((isTheYearGood(date)== true) && (isTheMonthGood(date)==true) && (isTheDayGood(date)==true)) {
-                return true;
-            } else {
-                return false;
-                }
+    return((isTheYearGood(date)== true) && (isTheMonthGood(date)==true) && (isTheDayGood(date)==true)) ? true : false;
 }
 
 bool DateCheckingMethods::isTheYearGood(string date){
@@ -97,11 +85,12 @@ bool DateCheckingMethods::isTheYearGood(string date){
     }
     yearInt = changeDate(year);
     if((yearInt >= 2000) && (yearInt <= st.wYear)) {
-        return true;
-        } else {
-        cout << "Niepoprawnie podany rok" << endl;
-            return false;
-        }
+            return true;
+    } else {
+    cout << "Niepoprawnie podany rok" << endl;
+    return false;
+    }
+
 }
 
 bool DateCheckingMethods::isTheMonthGood(string date){
@@ -178,7 +167,7 @@ bool DateCheckingMethods::isTheDayGood(string date) {
         } else {
             if((dayInt >= 1) && (dayInt <= 28)){
             return true;
-        } else {
+            } else {
             cout << "Niepoprawnie podany dzien"<< endl;
             return false;
         }}}

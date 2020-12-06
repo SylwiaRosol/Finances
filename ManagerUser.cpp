@@ -37,10 +37,7 @@ User ManagerUser::giveDataNewUser() {
 }
 
 int ManagerUser::setIdNewUser() {
-     if (users.empty() == true)
-        return 1;
-    else
-        return users.back().getIdUser() + 1;
+     return (users.empty() == true) ? 1 : users.back().getIdUser() + 1;
 }
 
 bool ManagerUser::isExistNameUser(string nameUser) {
@@ -119,10 +116,7 @@ void ManagerUser::changePasswordLogedUser(){
 
 
 bool ManagerUser::isUserLoggedIn() {
-    if (idLoggedUser != 0)
-        return true;
-    else
-        return false;
+    return (idLoggedUser != 0) ? true : false;
 }
 
 int ManagerUser::getIdLoggedUser() {

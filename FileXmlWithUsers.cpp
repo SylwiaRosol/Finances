@@ -61,7 +61,3 @@ void FileXmlWithUsers::changePasswordLogedUser(string password, int idLoggedUser
     }
     xml.Save(getNameFile());
 }
-
-
-
-
