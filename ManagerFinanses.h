@@ -13,7 +13,7 @@
 #include "Expenses.h"
 #include "FileXMLWithIncomes.h"
 #include "FileXMLWithExpenses.h"
-
+#include "DateCheckingMethods.h"
 
 using namespace std;
 

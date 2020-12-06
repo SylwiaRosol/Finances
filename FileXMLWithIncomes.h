@@ -7,6 +7,7 @@
 #include "FileXml.h"
 #include "Markup.h"
 #include "HelpfulMethods.h"
+#include "DateCheckingMethods.h"
 
 
 using namespace std;

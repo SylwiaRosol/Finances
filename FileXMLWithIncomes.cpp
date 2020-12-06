@@ -40,7 +40,7 @@ vector <Incomes> FileXmlWithIncomes::loadIncomesFromFile() {
             income.setDate(xml.GetAttrib("date"));
             income.setCategoryIncome(xml.GetAttrib("category"));
             income.setAmount(HelpfulMethods::conversionStringForFloat(xml.GetAttrib("amount")));
-            income.setDateInt(HelpfulMethods::changeDate(xml.GetAttrib("date")));
+            income.setDateInt(DateCheckingMethods::changeDate(xml.GetAttrib("date")));
             incomes.push_back(income);
         }
 

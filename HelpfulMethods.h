@@ -24,16 +24,6 @@ public:
     static int loadIntiger();
     static float loadFloat();
 
-    static string loadTodayDate();
-    static int changeDate(string date);
-    static int beginningOfThisMonth();
-    static int beginningOfPreviousMonth();
-    static int theEndOfPreviousMonth();
-
-    static bool isTheDateGood(string data);
-    static bool isTheYearGood(string data);
-    static bool isTheMonthGood(string data);
-    static bool isTheDayGood(string data);
 
 };
 
